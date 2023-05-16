@@ -4,19 +4,15 @@ const tamogotchi = {
     energy: 2,
     mood: 4,
     getStatus: function () {
+        let isHungry = this.meal < 3 ? 'Я голоден' : 'Я не голоден'
+        let isEnergy = this.energy < 3 ? 'Я хочу спать' : 'Я не хочу спать'
+        let isMood = this.mood < 3 ? 'Мне скучно' : 'Мне весело'
         if (this.meal <= 0 || this.energy <= 0 || this.mood <= 0) {
             console.log(`${this.name} умер :(`)
         }
-        if (this.meal < 3) {
-            this.meal = `Я голоден (${this.meal})`
+        else {
+        console.log(`Имя: ${this.name}, Еда: ${isHungry} (${this.meal}), Энергия: ${isEnergy} (${this.energy}), Настроение: ${isMood} (${this.mood})`)
         }
-        if (this.energy < 3) {
-            this.energy = `Я хочу спать (${this.energy})`
-        }
-        if (this.mood < 3) {
-            this.mood = `Мне скучно (${this.mood})`
-        }
-            console.log(`Имя: ${this.name}, Еда: ${this.meal}, Энергия: ${this.energy}, Настроение: ${this.mood}`)
     },
     getName: function (str) {
         this.name = str
@@ -40,6 +36,5 @@ const tamogotchi = {
         this.energy--
     },
   }
-
 
 tamogotchi.getStatus()
